@@ -1,0 +1,171 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Contacto — Daniel Guerrero</title>
+
+  <style>
+    :root {
+      --background: #f7f7f4;
+      --text: #161616;
+      --line: #b8b8b2;
+      --module-width: 620px;
+    }
+
+    * {
+      box-sizing: border-box;
+    }
+
+    body {
+      margin: 0;
+      background: var(--background);
+      color: var(--text);
+      font-family: Helvetica, Arial, sans-serif;
+      font-weight: 400;
+      -webkit-font-smoothing: antialiased;
+    }
+
+    a {
+      color: inherit;
+      text-decoration: none;
+    }
+
+    .contact {
+      min-height: 100vh;
+      padding: 80px 24px 120px;
+    }
+
+    .contact__inner {
+      width: min(100%, var(--module-width));
+      margin: 0 auto;
+    }
+
+    .contact__heading {
+      margin: 0 0 28px;
+      font-size: 12px;
+      line-height: 1;
+      font-weight: 400;
+      letter-spacing: 0.1em;
+      text-transform: uppercase;
+    }
+
+    .contact__card {
+      display: flex;
+      flex-direction: column;
+      justify-content: center;
+      min-height: 280px;
+      padding: 48px;
+      border: 1px solid var(--line);
+    }
+
+    .contact__details {
+      display: flex;
+      flex-direction: column;
+      align-items: flex-start;
+      gap: 52px;
+      margin-top: 0;
+    }
+
+    .contact__primary {
+      display: block;
+      width: fit-content;
+      margin: 0;
+      font-size: clamp(18px, 3vw, 24px);
+      line-height: 1.1;
+      border-bottom: 1px solid currentColor;
+    }
+
+    .contact__meta {
+      display: flex;
+      flex-wrap: wrap;
+      gap: 10px 28px;
+      margin: 0;
+      padding: 0;
+      list-style: none;
+      font-size: 12px;
+      line-height: 1.4;
+    }
+
+    .contact__meta a {
+      border-bottom: 1px solid transparent;
+      transition: border-color 160ms ease;
+    }
+
+    .contact__meta a:hover,
+    .contact__meta a:focus-visible {
+      border-color: currentColor;
+    }
+
+    @media (max-width: 480px) {
+      :root {
+        --module-width: 100%;
+      }
+
+      .contact {
+        padding: 48px 20px 80px;
+      }
+
+      .contact__card {
+        min-height: 260px;
+        padding: 28px;
+      }
+
+      .contact__meta {
+        flex-direction: column;
+        gap: 8px;
+      }
+    }
+  </style>
+</head>
+
+<body>
+  <main class="contact" id="contacto">
+    <div class="contact__inner">
+      <h1 class="contact__heading">Contacto</h1>
+
+      <section class="contact__card">
+        <!-- DATOS EDITABLES -->
+        <div class="contact__details">
+          <a class="contact__primary" href="guerreromail@gmail.com">
+            guerreromail@gmail.com
+          </a>
+
+          <!-- Reemplazar enlace y texto por el número definitivo -->
+          <a
+            class="contact__primary"
+            href="+543515934902"
+            target="_blank"
+            rel="noopener"
+          >
+            +54 9 351 593 4902
+          </a>
+
+          <!-- BLOQUE ANULADO: para reactivarlo, quitar las etiquetas <template> -->
+          <template id="contact-meta-disabled">
+            <ul class="contact__meta">
+              <li>Córdoba, Argentina</li>
+              <li>
+                <!-- Reemplazar por el número completo: país + área + número, sin + ni espacios -->
+                <a href="https://wa.me/5493510000000" target="_blank" rel="noopener">
+                  WhatsApp
+                </a>
+              </li>
+              <li>
+                <a href="https://www.instagram.com/usuario" target="_blank" rel="noopener">
+                  Instagram
+                </a>
+              </li>
+              <li>
+                <a href="https://www.linkedin.com/in/usuario" target="_blank" rel="noopener">
+                  LinkedIn
+                </a>
+              </li>
+            </ul>
+          </template>
+        </div>
+      </section>
+    </div>
+  </main>
+</body>
+</html>
