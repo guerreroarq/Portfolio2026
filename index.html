@@ -1,0 +1,646 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta name="description" content="Portfolio de arquitectura, desarrollo técnico y visualización de Daniel Guerrero.">
+    <title>Portfolio Arquitectura | Daniel Guerrero</title>
+
+    <style>
+        :root {
+            --paper: #efede8;
+            --ink: #141414;
+            --muted: #706f6a;
+            --dark: #101010;
+            --light: #f5f3ed;
+            --placeholder: #d5d4cf;
+            --line: rgba(20, 20, 20, 0.18);
+            --page-padding: clamp(1.25rem, 4vw, 5rem);
+        }
+
+        * {
+            box-sizing: border-box;
+            margin: 0;
+            padding: 0;
+        }
+
+        html {
+            scroll-behavior: smooth;
+        }
+
+        body {
+            background: var(--paper);
+            color: var(--ink);
+            font-family: Helvetica, Arial, sans-serif;
+            font-size: 16px;
+            line-height: 1.35;
+            overflow-x: hidden;
+        }
+
+        a {
+            color: inherit;
+            text-decoration: none;
+        }
+
+        /* PORTADA */
+        .hero {
+            position: relative;
+            min-height: 100svh;
+            display: flex;
+            align-items: flex-end;
+            padding: clamp(8rem, 18vh, 13rem) var(--page-padding) clamp(3rem, 8vh, 6rem);
+            isolation: isolate;
+            background: #202020;
+            color: white;
+        }
+
+        .hero::after {
+            content: "";
+            position: absolute;
+            inset: 0;
+            z-index: -1;
+            background: linear-gradient(180deg, rgba(0, 0, 0, 0.02), rgba(0, 0, 0, 0.40));
+        }
+
+        .site-header {
+            position: absolute;
+            top: 0;
+            left: 0;
+            z-index: 2;
+            width: 100%;
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+            padding: 1.5rem var(--page-padding);
+            font-weight: 400;
+        }
+
+        .site-title {
+            display: flex;
+            gap: 0.55em;
+            font-size: 1.5rem;
+            font-weight: 400;
+            letter-spacing: -0.03em;
+        }
+
+        .site-nav {
+            display: flex;
+            gap: clamp(1rem, 2.5vw, 2.5rem);
+        }
+
+        .site-nav a {
+            font-size: 0.9rem;
+            font-weight: 400;
+            letter-spacing: 0.02em;
+            opacity: 0.8;
+            transition: opacity 180ms ease;
+        }
+
+        .site-nav a:hover,
+        .site-nav a:focus-visible {
+            opacity: 1;
+        }
+
+        .hero-content {
+            width: min(100%, 1050px);
+        }
+
+        .hero-kicker {
+            margin-top: 1rem;
+            font-size: 1.05rem;
+            font-weight: 700;
+            letter-spacing: 0.12em;
+            text-transform: uppercase;
+        }
+
+        .hero h1 {
+            max-width: 980px;
+            font-size: clamp(2.5rem, 6.6vw, 7.2rem);
+            font-weight: 400;
+            letter-spacing: -0.065em;
+            line-height: 0.88;
+        }
+
+        /* Cuando no hay imagen, se ve esta caja de referencia */
+        .media-placeholder {
+            position: relative;
+            display: grid;
+            place-items: center;
+            overflow: hidden;
+            background: var(--placeholder);
+            color: #686762;
+        }
+
+        .hero > .media-placeholder {
+            position: absolute;
+            inset: 0;
+            z-index: -2;
+        }
+
+        .media-placeholder img {
+            width: 100%;
+            height: 100%;
+            object-fit: cover;
+        }
+
+        .placeholder-label {
+            padding: 1rem;
+            font-size: 0.65rem;
+            font-weight: 700;
+            letter-spacing: 0.12em;
+            text-align: center;
+            text-transform: uppercase;
+        }
+
+        /* INTRODUCCIÓN */
+        .intro {
+            display: grid;
+            grid-template-columns: minmax(150px, 0.8fr) 2fr;
+            gap: clamp(2rem, 8vw, 10rem);
+            padding: clamp(4rem, 9vw, 9rem) var(--page-padding);
+        }
+
+        .section-index {
+            font-size: 0.68rem;
+            font-weight: 700;
+            letter-spacing: 0.13em;
+            line-height: 1.55;
+            text-transform: uppercase;
+        }
+
+        .intro-copy {
+            grid-column: 2;
+            max-width: 720px;
+        }
+
+        .intro h2 {
+            max-width: 620px;
+            margin-bottom: 1.25rem;
+            font-size: clamp(2rem, 4.7vw, 5rem);
+            font-weight: 400;
+            letter-spacing: -0.055em;
+            line-height: 0.94;
+        }
+
+        .intro p,
+        .project-copy p {
+            max-width: 560px;
+            color: var(--muted);
+            font-size: clamp(0.88rem, 1.1vw, 1rem);
+        }
+
+        /* PROYECTO DESTACADO */
+        .featured {
+            display: grid;
+            grid-template-columns: 3fr 3fr 4fr;
+            width: min(calc(100% - (2 * var(--page-padding))), 1667px);
+            margin: 0 auto;
+            padding: clamp(3rem, 7vw, 7rem) 0;
+            background: var(--dark);
+            box-shadow: 0 0 0 100vmax var(--dark);
+            clip-path: inset(0 -100vmax);
+            color: var(--light);
+        }
+
+        .featured::before {
+            content: "";
+            position: absolute;
+            inset: 0;
+            z-index: -1;
+            background: var(--dark);
+        }
+
+        .featured {
+            position: relative;
+            isolation: isolate;
+        }
+
+        .featured-media,
+        .secondary-media {
+            position: relative;
+            overflow: hidden;
+        }
+
+        .featured-media {
+            grid-column: 1 / 3;
+            aspect-ratio: 4 / 3;
+        }
+
+        .featured-copy {
+            align-self: center;
+            padding-left: clamp(2rem, 4vw, 5rem);
+        }
+
+        .eyebrow {
+            margin-bottom: 1.4rem;
+            font-size: 0.62rem;
+            font-weight: 700;
+            letter-spacing: 0.12em;
+            text-transform: uppercase;
+            opacity: 0.55;
+        }
+
+        .featured h2,
+        .secondary-project h2 {
+            margin-bottom: 1rem;
+            font-size: clamp(2.6rem, 5vw, 5.5rem);
+            font-weight: 400;
+            letter-spacing: -0.06em;
+            line-height: 0.92;
+        }
+
+        .featured p {
+            color: rgba(245, 243, 237, 0.62);
+        }
+
+        .project-meta {
+            margin-top: 1.75rem;
+            list-style: none;
+            font-size: 0.7rem;
+            font-weight: 700;
+            line-height: 1.55;
+        }
+
+        /* PROYECTOS SECUNDARIOS */
+        .secondary-projects {
+            display: flex;
+            flex-direction: column;
+            gap: clamp(5rem, 10vw, 10rem);
+            width: min(calc(100% - (2 * var(--page-padding))), 1667px);
+            margin: 0 auto;
+            padding: clamp(5rem, 10vw, 10rem) 0;
+        }
+
+        .secondary-row {
+            display: grid;
+            align-items: start;
+        }
+
+        /* Primera fila: conserva exactamente la diagramación original */
+        .secondary-row--lead {
+            grid-template-columns: 3fr 3fr 4fr;
+        }
+
+        /* Filas nuevas: dos lugares; el primero siempre comienza a la izquierda */
+        .secondary-row--standard {
+            grid-template-columns: repeat(2, minmax(0, 1fr));
+            gap: clamp(3rem, 7vw, 8rem);
+        }
+
+        .secondary-project {
+            min-width: 0;
+        }
+
+        .secondary-row--lead .secondary-project--left.secondary-project--vertical {
+            display: contents;
+        }
+
+        .secondary-project--vertical .secondary-media {
+            aspect-ratio: 3 / 4;
+        }
+
+        .secondary-row--lead .secondary-project--left.secondary-project--vertical .project-copy {
+            padding: 0 clamp(1.5rem, 3vw, 3rem);
+        }
+
+        .secondary-row--lead .secondary-project--right.secondary-project--horizontal {
+            grid-column: 3;
+        }
+
+        .secondary-row--standard .secondary-project--vertical {
+            display: grid;
+            grid-template-columns: minmax(0, 0.85fr) minmax(180px, 1fr);
+            gap: clamp(1.5rem, 3vw, 3rem);
+        }
+
+        .secondary-row--standard .secondary-project--horizontal .secondary-media {
+            aspect-ratio: 4 / 3;
+        }
+
+        .secondary-project--horizontal .secondary-media {
+            aspect-ratio: 4 / 3;
+            margin-bottom: 2rem;
+        }
+
+        .secondary-project h2 {
+            font-size: clamp(2rem, 3.8vw, 4.6rem);
+        }
+
+        .project-link {
+            display: inline-block;
+            margin-top: 1.5rem;
+            padding-bottom: 0.2rem;
+            border-bottom: 1px solid currentColor;
+            font-size: 0.7rem;
+            font-weight: 700;
+            letter-spacing: 0.1em;
+            text-transform: uppercase;
+        }
+
+        footer {
+            display: flex;
+            justify-content: space-between;
+            gap: 2rem;
+            padding: 2rem var(--page-padding);
+            border-top: 1px solid var(--line);
+            color: var(--muted);
+            font-size: 0.7rem;
+            letter-spacing: 0.08em;
+            text-transform: uppercase;
+        }
+
+        @media (max-width: 900px) {
+            .featured {
+                grid-template-columns: 1fr;
+            }
+
+            .featured-media {
+                grid-column: auto;
+                aspect-ratio: 16 / 10;
+            }
+
+            .featured-copy {
+                padding: 3rem 0 2rem;
+            }
+
+            .secondary-row,
+            .secondary-row--lead,
+            .secondary-row--standard {
+                grid-template-columns: 1fr;
+                gap: 6rem;
+            }
+
+            .secondary-row--lead .secondary-project--left.secondary-project--vertical,
+            .secondary-row--standard .secondary-project--vertical {
+                display: grid;
+                grid-template-columns: minmax(180px, 0.8fr) 1fr;
+                gap: 2rem;
+            }
+
+            .secondary-row--lead .secondary-project--left.secondary-project--vertical .project-copy {
+                padding: 0;
+            }
+
+            .secondary-row--lead .secondary-project--right.secondary-project--horizontal {
+                grid-column: auto;
+            }
+        }
+
+        @media (max-width: 620px) {
+            .site-header {
+                align-items: flex-start;
+            }
+
+            .site-title {
+                flex-direction: column;
+                gap: 0;
+            }
+
+            .site-nav {
+                flex-direction: column;
+                gap: 0.35rem;
+                align-items: flex-end;
+            }
+
+            .intro {
+                grid-template-columns: 1fr;
+                gap: 2.5rem;
+            }
+
+            .intro-copy {
+                grid-column: auto;
+            }
+
+            .secondary-row--lead .secondary-project--left.secondary-project--vertical,
+            .secondary-row--standard .secondary-project--vertical {
+                grid-template-columns: 1fr;
+            }
+
+            .secondary-project--vertical .secondary-media {
+                width: 72%;
+            }
+
+            footer {
+                flex-direction: column;
+                gap: 0.5rem;
+            }
+        }
+    </style>
+</head>
+
+<body>
+    <main>
+        <section class="hero" id="inicio">
+            <header class="site-header">
+                <a class="site-title" href="#inicio" aria-label="Volver al inicio">
+                    <span>Daniel Guerrero</span>
+                </a>
+
+                <nav class="site-nav" aria-label="Navegación principal">
+                    <a href="#servicios">Servicios</a>
+                    <a href="#sobre-mi">Sobre mí</a>
+                    <a href="#contacto">Contacto</a>
+                </nav>
+            </header>
+
+            <div class="media-placeholder" id="heroMedia"></div>
+
+            <div class="hero-content">
+                <h1 id="heroTitle"></h1>
+                <p class="hero-kicker" id="heroKicker"></p>
+            </div>
+        </section>
+
+        <section class="intro" id="servicios">
+            <div class="intro-copy">
+                <h2>Contexto, sistema y detalle.</h2>
+                <p>Una selección breve que muestra tres capacidades complementarias: pensar la arquitectura, desarrollarla técnicamente y comunicarla con precisión.</p>
+            </div>
+        </section>
+
+        <section class="featured" id="proyectos">
+            <a class="featured-media" id="featuredMedia" href="#" aria-label="Ver proyecto destacado"></a>
+
+            <article class="featured-copy project-copy">
+                <p class="eyebrow">01 / Proyecto destacado</p>
+                <h2 id="featuredTitle"></h2>
+                <p id="featuredDescription"></p>
+                <ul class="project-meta" id="featuredMeta"></ul>
+                <a class="project-link" id="featuredLink" href="#">Ver proyecto</a>
+            </article>
+        </section>
+
+        <section class="secondary-projects" id="secondaryProjects" aria-label="Otros proyectos seleccionados"></section>
+    </main>
+
+    <footer id="contacto">
+        <p id="footerText"></p>
+        <a href="mailto:correo@ejemplo.com">correo@ejemplo.com</a>
+    </footer>
+
+    <script>
+        // ================================================================
+        // EDITAR DESDE AQUÍ: textos, rutas de imágenes y enlaces del index.
+        // Dejá image: "" para conservar la caja gris de referencia.
+        // Ejemplo: image: "images_dorms/portada.jpg"
+        // ================================================================
+
+        const SITE = {
+            author: "Daniel Guerrero",
+            year: "2026",
+            hero: {
+                image: "images/06-mirador-pasarela-c.jpg",
+                imagePosition: "center center",
+                label: "Imagen principal · 1920 × 1080",
+                kicker: "Arquitectura · Desarrollo técnico · Visualización",
+                title: "Portfolio 2026."
+            }
+        };
+
+        const PROJECTS = [
+            {
+                title: "Dorms La Paisanita",
+                image: "images/02-vista-aerea.jpg",
+                imagePosition: "center center",
+                label: "Imagen destacada · Horizontal",
+                description: "Habitar la pendiente sin borrar el paisaje. Un sistema de unidades compactas elevadas se adapta a la topografía y se vincula mediante pasarelas livianas.",
+                meta: [
+                    "Arquitectura y visualización",
+                    "Proyecto integral",
+                    "Córdoba, Argentina"
+                ],
+                link: "proyecto-dorms.html"
+            },
+            {
+                title: "Casa Monse",
+                image: "images/monse-02.jpg",
+                imagePosition: "center center",
+                layout: "horizontal",
+                label: "Imagen secundaria · Horizontal",
+                description: "Proyecto de vivienda trabajado desde el diseño arquitectónico hasta el desarrollo técnico y su comunicación visual.",
+                link: "proyecto-monse.html"
+            },
+            {
+                title: "Casa Noe",
+                image: "images/casa-noe-01.jpg",
+                imagePosition: "center center",
+                layout: "horizontal",
+                label: "Imagen secundaria · Horizontal",
+                description: "Proyecto de vivienda trabajado desde el diseño arquitectónico hasta el desarrollo técnico y su comunicación visual.",
+                link: "proyecto-noe.html"
+            },
+            
+            // PARA AGREGAR OTRO PROYECTO:
+            // 1. Agregá una coma después del proyecto anterior.
+            // 2. Copiá este bloque y elegí layout: "vertical" u "horizontal".
+            // {
+            //     title: "Nuevo proyecto",
+            //     image: "images/nuevo-proyecto.jpg",
+            //     imagePosition: "center center",
+            //     layout: "vertical",
+            //     label: "Imagen secundaria",
+            //     description: "Descripción breve del proyecto.",
+            //     link: "project.html"
+            // }
+        ];
+
+        // ================================================================
+        // CÓDIGO AUTOMÁTICO: no hace falta editar debajo de esta línea.
+        // ================================================================
+
+        function renderMedia(container, item) {
+            container.classList.add("media-placeholder");
+
+            if (item.image) {
+                const image = document.createElement("img");
+                image.src = item.image;
+                image.alt = item.title || item.label || "Imagen del proyecto";
+                image.style.objectPosition = item.imagePosition || "center center";
+                container.appendChild(image);
+            } else {
+                const label = document.createElement("span");
+                label.className = "placeholder-label";
+                label.textContent = item.label;
+                container.appendChild(label);
+            }
+        }
+
+        function renderProject(project, prefix) {
+            const media = document.getElementById(`${prefix}Media`);
+            const title = document.getElementById(`${prefix}Title`);
+            const description = document.getElementById(`${prefix}Description`);
+            const link = document.getElementById(`${prefix}Link`);
+
+            renderMedia(media, project);
+            media.href = project.link;
+            title.textContent = project.title;
+            description.textContent = project.description;
+            link.href = project.link;
+        }
+
+        function createSecondaryProject(project, projectNumber, position) {
+            const article = document.createElement("article");
+            const layout = project.layout === "vertical" ? "vertical" : "horizontal";
+            article.className = `secondary-project secondary-project--${layout} secondary-project--${position}`;
+
+            const media = document.createElement("a");
+            media.className = "secondary-media";
+            media.href = project.link;
+            media.setAttribute("aria-label", `Ver ${project.title}`);
+            renderMedia(media, project);
+
+            const copy = document.createElement("div");
+            copy.className = "project-copy";
+            copy.innerHTML = `
+                <p class="eyebrow">${String(projectNumber).padStart(2, "0")} / Proyecto</p>
+                <h2>${project.title}</h2>
+                <p>${project.description}</p>
+                <a class="project-link" href="${project.link}">Ver proyecto</a>
+            `;
+
+            article.append(media, copy);
+            return article;
+        }
+
+        function renderSecondaryProjects() {
+            const container = document.getElementById("secondaryProjects");
+            const projects = PROJECTS.slice(1);
+
+            for (let index = 0; index < projects.length; index += 2) {
+                const row = document.createElement("div");
+                const firstProject = projects[index];
+                const secondProject = projects[index + 1];
+                const firstRowUsesOriginalLayout =
+                    index === 0 &&
+                    !(firstProject.layout === "horizontal" && secondProject?.layout === "horizontal");
+
+                row.className = `secondary-row ${firstRowUsesOriginalLayout ? "secondary-row--lead" : "secondary-row--standard"}`;
+
+                row.appendChild(createSecondaryProject(firstProject, index + 2, "left"));
+
+                if (secondProject) {
+                    row.appendChild(createSecondaryProject(secondProject, index + 3, "right"));
+                }
+
+                container.appendChild(row);
+            }
+        }
+
+        renderMedia(document.getElementById("heroMedia"), SITE.hero);
+        document.getElementById("heroKicker").textContent = SITE.hero.kicker;
+        document.getElementById("heroTitle").textContent = SITE.hero.title;
+
+        renderProject(PROJECTS[0], "featured");
+        renderSecondaryProjects();
+
+        PROJECTS[0].meta.forEach(item => {
+            const row = document.createElement("li");
+            row.textContent = item;
+            document.getElementById("featuredMeta").appendChild(row);
+        });
+
+        document.getElementById("footerText").textContent =
+            `© ${SITE.year} ${SITE.author}`;
+    </script>
+</body>
+</html>
