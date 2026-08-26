@@ -1,0 +1,148 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Servicios — Daniel Guerrero</title>
+
+  <style>
+    :root {
+      --background: #f7f7f4;
+      --text: #161616;
+      --line: #b8b8b2;
+      --module-width: 620px;
+    }
+
+    * {
+      box-sizing: border-box;
+    }
+
+    html {
+      scroll-behavior: smooth;
+    }
+
+    body {
+      margin: 0;
+      background: var(--background);
+      color: var(--text);
+      font-family: Helvetica, Arial, sans-serif;
+      font-weight: 400;
+      -webkit-font-smoothing: antialiased;
+    }
+
+    .services {
+      min-height: 100vh;
+      padding: 80px 24px 120px;
+    }
+
+    .services__inner {
+      width: min(100%, var(--module-width));
+      margin: 0 auto;
+    }
+
+    .services__heading {
+      margin: 0 0 28px;
+      font-size: 12px;
+      line-height: 1;
+      font-weight: 400;
+      letter-spacing: 0.1em;
+      text-transform: uppercase;
+    }
+
+    .services__list {
+      display: flex;
+      flex-direction: column;
+      gap: 32px;
+    }
+
+    .service {
+      display: flex;
+      flex-direction: column;
+      justify-content: center;
+      width: 100%;
+      min-height: 280px;
+      padding: 48px;
+      border: 1px solid var(--line);
+    }
+
+    .service__title {
+      margin: 0 0 16px;
+      font-size: clamp(30px, 5vw, 42px);
+      line-height: 0.95;
+      font-weight: 400;
+      letter-spacing: -0.045em;
+    }
+
+    .service__text {
+      margin: 0;
+      max-width: 500px;
+      font-size: 14px;
+      line-height: 1.45;
+      font-weight: 400;
+    }
+
+    @media (max-width: 480px) {
+      :root {
+        --module-width: 100%;
+      }
+
+      .services {
+        padding: 48px 20px 80px;
+      }
+
+      .service {
+        min-height: 230px;
+        padding: 28px;
+      }
+
+      .service__text {
+        font-size: 13px;
+      }
+    }
+  </style>
+</head>
+
+<body>
+  <main class="services" id="servicios">
+    <div class="services__inner">
+      <h1 class="services__heading">Servicios</h1>
+
+      <!-- BLOQUES EDITABLES -->
+      <div class="services__list">
+        <article class="service">
+          <div>
+            <h2 class="service__title">Arquitectura</h2>
+            <p class="service__text">
+              Diseño y desarrollo de proyectos arquitectónicos en distintas
+              escalas, desde intervenciones domésticas y ampliaciones sobre
+              preexistencias hasta proyectos de mayor complejidad.
+            </p>
+          </div>
+        </article>
+
+        <article class="service">
+          <div>
+            <h2 class="service__title">Desarrollo técnico</h2>
+            <p class="service__text">
+              Desarrollo de documentación ejecutiva y legajos técnicos con
+              precisión y consistencia, aportando criterio proyectual a las
+              decisiones y resoluciones constructivas.
+            </p>
+          </div>
+        </article>
+
+        <article class="service">
+          <div>
+            <h2 class="service__title">Visualización</h2>
+            <p class="service__text">
+              Modelado 3D y producción de imágenes, animaciones y narrativas
+              visuales para comunicar proyectos con claridad, integrando
+              herramientas generativas cuando aportan valor al proceso.
+            </p>
+          </div>
+        </article>
+      </div>
+    </div>
+  </main>
+</body>
+</html>

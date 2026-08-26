@@ -1,0 +1,167 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Sobre mí — Daniel Guerrero</title>
+
+  <style>
+    :root {
+      --background: #f7f7f4;
+      --text: #161616;
+      --line: #b8b8b2;
+      --module-width: 620px;
+      --photo-size: 220px;
+    }
+
+    * {
+      box-sizing: border-box;
+    }
+
+    body {
+      margin: 0;
+      background: var(--background);
+      color: var(--text);
+      font-family: Helvetica, Arial, sans-serif;
+      font-weight: 400;
+      -webkit-font-smoothing: antialiased;
+    }
+
+    .about {
+      min-height: 100vh;
+      padding: 80px 24px 120px;
+    }
+
+    .about__inner {
+      width: min(100%, var(--module-width));
+      margin: 0 auto;
+    }
+
+    .about__heading {
+      margin: 0 0 28px;
+      font-size: 12px;
+      line-height: 1;
+      font-weight: 400;
+      letter-spacing: 0.1em;
+      text-transform: uppercase;
+    }
+
+    .about__card {
+      padding: 48px;
+      border: 1px solid var(--line);
+    }
+
+    .about__photo {
+      position: relative;
+      width: var(--photo-size);
+      aspect-ratio: 1 / 1;
+      margin: 0 auto 48px;
+      overflow: hidden;
+      background: #ecece7;
+    }
+
+    .about__photo::before {
+      content: "FOTO";
+      position: absolute;
+      inset: 0;
+      display: grid;
+      place-items: center;
+      color: #777772;
+      font-size: 10px;
+      letter-spacing: 0.12em;
+      z-index: 0;
+    }
+
+    .about__photo img {
+      position: relative;
+      z-index: 1;
+      display: block;
+      width: 100%;
+      height: 100%;
+      object-fit: cover;
+      object-position: center;
+    }
+
+    .about__text {
+      max-width: 500px;
+      margin: 0 auto;
+      font-size: 14px;
+      line-height: 1.5;
+    }
+
+    .about__text p {
+      margin: 0 0 18px;
+    }
+
+    .about__text p:last-child {
+      margin-bottom: 0;
+    }
+
+    @media (max-width: 480px) {
+      :root {
+        --module-width: 100%;
+        --photo-size: 180px;
+      }
+
+      .about {
+        padding: 48px 20px 80px;
+      }
+
+      .about__card {
+        padding: 28px;
+      }
+
+      .about__photo {
+        margin-bottom: 36px;
+      }
+
+      .about__text {
+        font-size: 13px;
+      }
+    }
+  </style>
+</head>
+
+<body>
+  <main class="about" id="sobre-mi">
+    <div class="about__inner">
+      <h1 class="about__heading">Sobre mí</h1>
+
+      <section class="about__card">
+        <!-- FOTO EDITABLE: reemplazar la ruta por la imagen definitiva -->
+        <div class="about__photo">
+          <img
+            src="images/foto-perfil.jpg"
+            alt="Daniel Guerrero"
+            onerror="this.style.display='none'"
+          >
+        </div>
+
+        <!-- TEXTO EDITABLE -->
+        <div class="about__text">
+          <p>
+            Soy arquitecto y cuento con experiencia en el desarrollo de proyectos
+            de distintas escalas, desde obras de gran complejidad realizadas en
+            equipos multidisciplinarios hasta intervenciones residenciales
+            desarrolladas en colaboración con estudios de arquitectura.
+          </p>
+
+          <p>
+            Mi trabajo integra diseño, documentación técnica, resolución de
+            detalles, modelado 3D y visualización arquitectónica. Esta combinación
+            me permite participar en diferentes etapas del proceso, comprender
+            tanto la lógica general de un proyecto como su definición constructiva
+            y comunicar las propuestas con claridad.
+          </p>
+
+          <p>
+            Actualmente oriento mi práctica al trabajo independiente y a la
+            colaboración con estudios, arquitectos, profesionales y clientes que
+            necesiten apoyo proyectual, desarrollo técnico o producción visual.
+          </p>
+        </div>
+      </section>
+    </div>
+  </main>
+</body>
+</html>
