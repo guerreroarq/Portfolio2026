@@ -9,6 +9,8 @@
     :root {
       --background: #f7f7f4;
       --text: #161616;
+      --text-secondary: #6b6b6b;
+      --accent: #d4452c;
       --line: #b8b8b2;
       --module-width: 620px;
     }
@@ -30,9 +32,61 @@
       -webkit-font-smoothing: antialiased;
     }
 
+    .site-header {
+      position: fixed;
+      top: 0;
+      left: 0;
+      z-index: 1000;
+      display: flex;
+      align-items: center;
+      justify-content: space-between;
+      width: 100%;
+      padding: 2rem 4rem;
+      background: linear-gradient(180deg, var(--background) 0%, rgba(247, 247, 244, 0.95) 75%, transparent 100%);
+    }
+
+    .site-header__logo {
+      color: var(--text);
+      font-size: 1.5rem;
+      line-height: 1;
+      letter-spacing: -0.03em;
+      text-decoration: none;
+    }
+
+    .site-nav {
+      display: flex;
+      gap: clamp(1rem, 2.5vw, 2.5rem);
+    }
+
+    .site-nav a {
+      position: relative;
+      color: var(--text-secondary);
+      font-size: 0.9rem;
+      line-height: 1;
+      letter-spacing: 0.02em;
+      text-decoration: none;
+    }
+
+    .site-nav a::after {
+      content: "";
+      position: absolute;
+      bottom: -4px;
+      left: 0;
+      width: 0;
+      height: 1px;
+      background: var(--accent);
+      transition: width 180ms ease;
+    }
+
+    .site-nav a:hover::after,
+    .site-nav a:focus-visible::after,
+    .site-nav a[aria-current="page"]::after {
+      width: 100%;
+    }
+
     .services {
       min-height: 100vh;
-      padding: 80px 24px 120px;
+      padding: 144px 24px 120px;
     }
 
     .services__inner {
@@ -87,7 +141,18 @@
       }
 
       .services {
-        padding: 48px 20px 80px;
+        padding: 128px 20px 80px;
+      }
+
+      .site-header {
+        align-items: flex-start;
+        padding: 1.5rem 20px;
+      }
+
+      .site-nav {
+        flex-direction: column;
+        align-items: flex-end;
+        gap: 0.45rem;
       }
 
       .service {
@@ -103,6 +168,15 @@
 </head>
 
 <body>
+  <header class="site-header">
+    <a class="site-header__logo" href="index.html">Daniel Guerrero</a>
+    <nav class="site-nav" aria-label="Navegación principal">
+      <a href="servicios.html" aria-current="page">Servicios</a>
+      <a href="sobre-mi.html">Sobre mí</a>
+      <a href="contacto.html">Contacto</a>
+    </nav>
+  </header>
+
   <main class="services" id="servicios">
     <div class="services__inner">
       <h1 class="services__heading">Servicios</h1>
